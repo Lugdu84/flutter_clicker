@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class GameScreen extends StatefulWidget {
@@ -19,7 +21,15 @@ class _GameScreenState extends State<GameScreen> {
 
   _startGame() {
     setState(() {
+      _clickCount = 0;
       _isCounting = true;
+      Timer(const Duration(seconds: 10), _stopGame);
+    });
+  }
+
+  _stopGame() {
+    setState(() {
+      _isCounting = false;
     });
   }
 
@@ -29,16 +39,22 @@ class _GameScreenState extends State<GameScreen> {
       appBar: AppBar(
         title: const Text('Clicker Game'),
       ),
-      body: Column(
-        children: [
-          Text('Nombre de clics : $_clickCount'),
-          if (!_isCounting)
-            ElevatedButton(
-                onPressed: _startGame, child: Text("Commencer la partie")),
-          if (_isCounting)
-            IconButton(
-                onPressed: _clickButtonTouched, icon: Icon(Icons.plus_one))
-        ],
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text('Nombre de clics : $_clickCount'),
+            if (_isCounting)
+              IconButton(
+                  onPressed: _clickButtonTouched,
+                  icon: const Icon(Icons.plus_one)),
+            const Spacer(),
+            if (!_isCounting)
+              ElevatedButton(
+                  onPressed: _startGame,
+                  child: const Text("Commencer la partie")),
+          ],
+        ),
       ),
     );
   }
