@@ -47,7 +47,7 @@ class _GameScreenState extends State<GameScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text("Meilleur score : $_bestScore"),
+            if (_bestScore > 0) Text("Meilleur score : $_bestScore"),
             Text('Nombre de clics : $_clickCount'),
             if (_isCounting)
               IconButton(
