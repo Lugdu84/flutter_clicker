@@ -11,6 +11,7 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
   var _clickCount = 0;
+  var _bestScore = 0;
   var _isCounting = false;
 
   _clickButtonTouched() {
@@ -30,6 +31,9 @@ class _GameScreenState extends State<GameScreen> {
   _stopGame() {
     setState(() {
       _isCounting = false;
+      if (_clickCount > _bestScore) {
+        _bestScore = _clickCount;
+      }
     });
   }
 
@@ -43,6 +47,7 @@ class _GameScreenState extends State<GameScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Text("Meilleur score : $_bestScore"),
             Text('Nombre de clics : $_clickCount'),
             if (_isCounting)
               IconButton(
