@@ -8,11 +8,18 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  var _score = 0;
+  var _clickCount = 0;
+  var _isCounting = false;
 
-  _onAdd() {
+  _clickButtonTouched() {
     setState(() {
-      _score++;
+      _clickCount++;
+    });
+  }
+
+  _startGame() {
+    setState(() {
+      _isCounting = true;
     });
   }
 
@@ -24,8 +31,13 @@ class _GameScreenState extends State<GameScreen> {
       ),
       body: Column(
         children: [
-          Text('Score: $_score'),
-          IconButton(onPressed: _onAdd, icon: Icon(Icons.plus_one))
+          Text('Nombre de clics : $_clickCount'),
+          if (!_isCounting)
+            ElevatedButton(
+                onPressed: _startGame, child: Text("Commencer la partie")),
+          if (_isCounting)
+            IconButton(
+                onPressed: _clickButtonTouched, icon: Icon(Icons.plus_one))
         ],
       ),
     );
