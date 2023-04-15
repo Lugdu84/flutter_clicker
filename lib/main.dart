@@ -7,7 +7,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,12 +48,18 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Nombre de clicks :',
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            if (_counter > 0) const Text("Continuez à cliquer"),
+            if (_counter > 5 && _counter < 10) const Text("OK... Pas mal !"),
+            if (_counter >= 10 && _counter < 20)
+              const Text("Les choses sérieuses peuvent commencer !"),
+            if (_counter >= 20 && _counter < 35)
+              const Text("J'aime les panoramas (OSS 117) !"),
           ],
         ),
       ),
