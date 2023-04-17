@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:clicker/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'model/game_result.dart';
 
@@ -87,10 +88,13 @@ class _GameScreenState extends State<GameScreen> {
                 ),
               ),
             if (_bestScore > 0)
-              Text(
-                  "Meilleur score : $_bestScore par ${_bestPlayerNickname ?? "Anonyme"}"),
-            Text("Joueur actuel : ${_currentPlayerNickname ?? "Anonyme"}"),
-            Text('Nombre de clics : $_clickCount'),
+              Text(S.of(context).bestScore(
+                  _bestScore,
+                  _bestPlayerNickname ??
+                      S.of(context).anonymous.toLowerCase())),
+            Text(S.of(context).currentPlayer(
+                _currentPlayerNickname ?? S.of(context).anonymous)),
+            Text(S.of(context).clickCount(_clickCount)),
             if (_isCounting)
               IconButton(
                   onPressed: _clickButtonTouched,
@@ -104,7 +108,7 @@ class _GameScreenState extends State<GameScreen> {
             if (!_isCounting)
               ElevatedButton(
                   onPressed: _startGame,
-                  child: const Text("Commencer la partie")),
+                  child: Text(S.of(context).gameStartButton)),
           ],
         ),
       ),

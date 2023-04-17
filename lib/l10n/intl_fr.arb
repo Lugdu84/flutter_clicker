@@ -1,0 +1,7 @@
+{
+     "gameStartButton": "Commencer la partie",
+     "bestScore": "Meilleur score : {bestScore} par {bestPlayerNickname}",
+     "anonymous": "Anonyme",
+     "clickCount": "Nombre de clics : {numberOfClicks}",
+     "currentPlayer": "Joueur actuel : {currentPlayerNickname}"
+}
