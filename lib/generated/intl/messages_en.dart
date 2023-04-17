@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clickCount": m1,
         "currentPlayer": m2,
         "gameStartButton":
-            MessageLookupByLibrary.simpleMessage("Start the game")
+            MessageLookupByLibrary.simpleMessage("Start the game"),
+        "nickname": MessageLookupByLibrary.simpleMessage("Nickname")
       };
 }

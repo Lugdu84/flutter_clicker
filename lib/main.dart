@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      title: 'Clicker Game',
+      title: 'Clicker',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -3,5 +3,6 @@
      "bestScore": "Meilleur score : {bestScore} par {bestPlayerNickname}",
      "anonymous": "Anonyme",
      "clickCount": "Nombre de clics : {numberOfClicks}",
-     "currentPlayer": "Joueur actuel : {currentPlayerNickname}"
+     "currentPlayer": "Joueur actuel : {currentPlayerNickname}",
+     "nickname": "Pseudo"
 }

@@ -99,6 +99,16 @@ class S {
       args: [currentPlayerNickname],
     );
   }
+
+  /// `Pseudo`
+  String get nickname {
+    return Intl.message(
+      'Pseudo',
+      name: 'nickname',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

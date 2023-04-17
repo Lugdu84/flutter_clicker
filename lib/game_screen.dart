@@ -36,7 +36,8 @@ class _GameScreenState extends State<GameScreen> {
     setState(() {
       _isCounting = false;
       _gameResultList.add(GameResult(
-          player: _currentPlayerNickname ?? "Anonyme", score: _clickCount));
+          player: _currentPlayerNickname ?? S.of(context).anonymous,
+          score: _clickCount));
       _gameResultList.sort();
 
       if (_clickCount > _bestScore) {
@@ -67,7 +68,7 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Clicker Game'),
+        title: const Text('Clicker'),
       ),
       body: SafeArea(
         child: Column(
@@ -82,8 +83,8 @@ class _GameScreenState extends State<GameScreen> {
                   autocorrect: false,
                   textCapitalization: TextCapitalization.words,
                   autofillHints: const [AutofillHints.givenName],
-                  decoration: const InputDecoration(
-                    labelText: 'Pseudo',
+                  decoration: InputDecoration(
+                    labelText: S.of(context).nickname,
                   ),
                 ),
               ),
