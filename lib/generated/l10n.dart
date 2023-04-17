@@ -109,6 +109,29 @@ class S {
       args: [],
     );
   }
+
+  /// `{score, plural, zero{aucun point} one{1 point} other{{score} points}}`
+  String gameResultScorePoints(num score) {
+    return Intl.plural(
+      score,
+      zero: 'aucun point',
+      one: '1 point',
+      other: '$score points',
+      name: 'gameResultScorePoints',
+      desc: '',
+      args: [score],
+    );
+  }
+
+  /// `Clicker`
+  String get appName {
+    return Intl.message(
+      'Clicker',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

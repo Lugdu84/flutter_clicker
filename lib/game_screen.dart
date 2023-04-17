@@ -59,7 +59,7 @@ class _GameScreenState extends State<GameScreen> {
       children: [
         Text(gameResult.player),
         Icon(Icons.military_tech),
-        Text(gameResult.score.toString() + " clics"),
+        Text(S.of(context).gameResultScorePoints(gameResult.score)),
       ],
     );
   }
@@ -68,7 +68,7 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Clicker'),
+        title: Text(S.of(context).appName),
       ),
       body: SafeArea(
         child: Column(

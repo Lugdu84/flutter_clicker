@@ -23,17 +23,22 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(bestScore, bestPlayerNickname) =>
       "Best score : ${bestScore} by ${bestPlayerNickname}";
 
-  static String m1(numberOfClicks) => "Nombre de clics : ${numberOfClicks}";
+  static String m1(numberOfClicks) => "Number of clicks : ${numberOfClicks}";
 
   static String m2(currentPlayerNickname) =>
       "Current player : ${currentPlayerNickname}";
 
+  static String m3(score) =>
+      "${Intl.plural(score, zero: 'no point', one: '1 point', other: '${score} points')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "anonymous": MessageLookupByLibrary.simpleMessage("Anonymous"),
+        "appName": MessageLookupByLibrary.simpleMessage("Clicker"),
         "bestScore": m0,
         "clickCount": m1,
         "currentPlayer": m2,
+        "gameResultScorePoints": m3,
         "gameStartButton":
             MessageLookupByLibrary.simpleMessage("Start the game"),
         "nickname": MessageLookupByLibrary.simpleMessage("Nickname")

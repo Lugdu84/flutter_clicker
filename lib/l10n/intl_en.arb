@@ -1,8 +1,10 @@
 {
-    "gameStartButton": "Start the game",
-    "bestScore": "Best score : {bestScore} by {bestPlayerNickname}",
-    "anonymous": "Anonymous",
-    "clickCount": "Nombre de clics : {numberOfClicks}",
-    "currentPlayer": "Current player : {currentPlayerNickname}",
-    "nickname": "Nickname"
+  "gameStartButton": "Start the game",
+  "bestScore": "Best score : {bestScore} by {bestPlayerNickname}",
+  "anonymous": "Anonymous",
+  "clickCount": "Number of clicks : {numberOfClicks}",
+  "currentPlayer": "Current player : {currentPlayerNickname}",
+  "nickname": "Nickname",
+  "gameResultScorePoints": "{score, plural, zero{no point} one{1 point} other{{score} points}}",
+  "appName": "Clicker"
 }
