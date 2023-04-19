@@ -6,5 +6,6 @@
   "currentPlayer": "Joueur actuel : {currentPlayerNickname}",
   "nickname": "Pseudo",
   "gameResultScorePoints": "{score, plural, zero{aucun point} one{1 point} other{{score} points}}",
-  "appName": "Clicker"
+  "appName": "Clicker",
+  "hallOfFame": "Temple de la renommée",
 }

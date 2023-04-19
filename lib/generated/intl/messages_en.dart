@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gameResultScorePoints": m3,
         "gameStartButton":
             MessageLookupByLibrary.simpleMessage("Start the game"),
+        "hallOfFame": MessageLookupByLibrary.simpleMessage("Hall of fame"),
         "nickname": MessageLookupByLibrary.simpleMessage("Nickname")
       };
 }

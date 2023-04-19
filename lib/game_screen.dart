@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:clicker/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'hall_of_fame_screen.dart';
 import 'model/game_result.dart';
 
 class GameScreen extends StatefulWidget {
@@ -53,17 +54,6 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
-  Widget _generateItemBuilder(BuildContext context, int index) {
-    final gameResult = _gameResultList[index];
-    return Row(
-      children: [
-        Text(gameResult.player),
-        Icon(Icons.military_tech),
-        Text(S.of(context).gameResultScorePoints(gameResult.score)),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,12 +90,17 @@ class _GameScreenState extends State<GameScreen> {
               IconButton(
                   onPressed: _clickButtonTouched,
                   icon: const Icon(Icons.plus_one)),
-            Expanded(
-              child: ListView.builder(
-                itemBuilder: _generateItemBuilder,
-                itemCount: _gameResultList.length,
-              ),
-            ),
+            if (!_isCounting)
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HallOfFameScreen(
+                                gameResultList: _gameResultList)));
+                  },
+                  child: Text(S.of(context).hallOfFame)),
+            const Spacer(),
             if (!_isCounting)
               ElevatedButton(
                   onPressed: _startGame,
